@@ -5,7 +5,7 @@ class HeaderNavBar extends React.Component{
 
     render(){
         return(
-            <div>Header navbar</div>
+            <div className="avatar"></div>
         );
     }   
 }

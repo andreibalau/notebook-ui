@@ -1,3 +1,4 @@
+
 .accountContainer{
     display: flex;
     height: inherit;
@@ -9,18 +10,22 @@
     flex-direction: column;
     height: inherit;
     width: 15%;
-    overflow-y: hidden;
+    overflow: hidden;
     background-color: greenyellow;
 }
 
 .accountContent{
     flex: 1;
     height: inherit;
+    overflow-y:auto;
+    overflow-x: hidden;
     background-color: lightskyblue;
 }
 
 .headerNavBar{
-    background-color: lightcoral;
+    display:flex;
+    height: 200px;
+    background-color: #4287f5;
 }
 
 .menuListNavBar{
@@ -32,4 +37,27 @@
 
 .footerNavBar{
     background-color: mediumslateblue;
+}
+
+@media only screen and (max-width: 768px) {
+    .navigationBar{
+        background-color: red;
+        width: 23%;
+    }
+    
+    .accountContent {
+      background-color: lightblue;
+    }
+
+    .headerNavBar{
+        background-color: navy;
+    }
+
+    .menuListNavBar{
+        background-color: olive;
+    }
+
+    .footerNavBar{
+        background-color: orangered;
+    }
 }
