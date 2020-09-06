@@ -1,7 +1,7 @@
 import React from "react";
-import "./header-navbar.css"
+import "./avatar.css"
 
-class HeaderNavBar extends React.Component{
+class Avatar extends React.Component{
 
     render(){
         return(
@@ -10,4 +10,4 @@ class HeaderNavBar extends React.Component{
     }   
 }
 
-export default HeaderNavBar;
+export default Avatar;

@@ -8,6 +8,10 @@ html,body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+hr{
+  margin: 0;
+  border-color: black;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

@@ -1,6 +1,6 @@
-import "./menulist-navbar.css";
+import "./menulist.css";
 import React from "react";
-class MenuListNavBar extends React.Component{
+class MenuList extends React.Component{
 
     render(){
         return <ul>
@@ -8,8 +8,8 @@ class MenuListNavBar extends React.Component{
                     <li>Notes</li>
                     <li>Notebooks</li>
                     <li>Groups</li>
-            </ul>   
+                </ul>   
     }
 }
 
-export default MenuListNavBar;
+export default MenuList;
