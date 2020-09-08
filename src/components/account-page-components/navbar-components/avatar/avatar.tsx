@@ -5,7 +5,7 @@ class Avatar extends React.Component{
 
     render(){
         return(
-            <div className="avatar"></div>
+                <img className="avatar" src={require("../../../../mock/images/avatar.jpg")} alt="avatar"/>
         );
     }   
 }

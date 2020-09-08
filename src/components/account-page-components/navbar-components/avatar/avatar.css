@@ -1,8 +1,6 @@
 
 .avatar {
-    /*they are not responsive, apply responsiveness rules here*/
-    width: 100px;
-    height: 100px;
+    width: inherit;
+    height: inherit;
     border-radius: 50%;
-    background-color: yellow;
   }

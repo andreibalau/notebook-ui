@@ -1,6 +1,6 @@
 import React from "react";
 import "./account-page-container.css";
-import NavBarContainer from './navbar-container/navbar-container';
+import NavBarContainer from'./navbar-container/navbar-container';
 
 class AccountPageContainer extends React.Component {
   render() {

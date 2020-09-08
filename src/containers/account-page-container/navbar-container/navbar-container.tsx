@@ -10,7 +10,7 @@ class NavBarContainer extends React.Component{
         return (
             <div className="navigationBarElementsWrapper">
                 <div className="headerNavBar">
-                        <div className="avatarPosition">
+                        <div className="avatarWrapper">
                             <Avatar />
                         </div>
                         <div className="headerFooter">
