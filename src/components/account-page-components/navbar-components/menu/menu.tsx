@@ -1,6 +1,6 @@
-import "./menulist.css";
+import "./menu.css";
 import React from "react";
-class MenuList extends React.Component{
+class Menu extends React.Component{
 
     render(){
         return <ul>
@@ -12,4 +12,4 @@ class MenuList extends React.Component{
     }
 }
 
-export default MenuList;
+export default Menu;

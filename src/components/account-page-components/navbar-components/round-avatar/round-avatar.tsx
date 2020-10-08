@@ -1,9 +1,9 @@
 import React from "react";
-import "./avatar.css"
+import "./round-avatar.css"
 
-type AvatarProps = {avatar: string};
-type AvatarState = {};
-class Avatar extends React.Component<AvatarProps,AvatarState>{
+type RoundAvatarProps = {avatar: string};
+type RoundAvatarState = {};
+class RoundAvatar extends React.Component<RoundAvatarProps,RoundAvatarState>{
 
     render(){
         //the received avatar is an encoded base64 img
@@ -13,4 +13,4 @@ class Avatar extends React.Component<AvatarProps,AvatarState>{
     }   
 }
 
-export default Avatar;
+export default RoundAvatar;
