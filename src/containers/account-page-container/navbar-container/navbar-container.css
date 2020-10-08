@@ -1,0 +1,60 @@
+
+.navigationBarElementsWrapper{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+.avatarWrapper{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+}
+
+.headerNavBar{
+    display:flex;
+    flex-direction: column;
+    height: 200px;
+    background-color: #4287f5;
+}
+
+.headerFooter{
+    display: flex;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#profile{
+    flex:1;
+    color: white;
+}
+#notifications{
+    flex:1;
+    color: orange;
+}
+
+.menuListNavBar{
+    flex:1;
+    min-height: 50px;/*in order when the app height is too small the menulist to not fully disappear*/
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: mintcream;
+}
+
+.footerNavBar{
+    background-color: mediumslateblue;
+}
+
+@media only screen and (max-width: 768px) {/*tablet screen size*/
+    .headerNavBar{
+        background-color: navy;
+    }
+
+    .menuListNavBar{
+        background-color: olive;
+    }
+
+    .footerNavBar{
+        background-color: orangered;
+    }
+}

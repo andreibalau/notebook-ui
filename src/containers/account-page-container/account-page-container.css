@@ -1,0 +1,41 @@
+
+.accountContainer{
+    display: flex;
+    height: inherit;
+    flex-wrap: nowrap;
+}
+
+.navigationBar{
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    width: 15%;
+    overflow: hidden;
+    background-color: greenyellow;
+}
+
+.accountContent{
+    flex: 1;
+    height: inherit;
+    overflow-y:auto;
+    overflow-x: hidden;
+    background-color: lightskyblue;
+}
+
+
+@media only screen and (max-width: 768px) {/*tablet screen size*/
+    .navigationBar{
+        background-color: red;
+        width: 23%;
+    }
+    
+    .accountContent {
+      background-color: lightblue;
+    }
+}
+
+@media only screen and (max-width: 1024px) {/*laptop screen size*/
+    .navigationBar{
+        width: 20%;
+    }
+}
