@@ -15,7 +15,11 @@ class NavBarContainer extends React.Component<NavBarProps, NavBarState> {
   render() {
     let profile: Profile = ProfileApi.getProfile();
     this.avatar = profile.avatar ? profile.avatar : profile.defaultAvatar;
-    console.log(this.avatar);
+    const menuItemList = ["Favorites","Notes","Notebooks","Groups"];
+    const menuIconList = [`${process.env.PUBLIC_URL}/icons/favorite-black-18dp.svg`,
+                          `${process.env.PUBLIC_URL}/icons/description-black-18dp.svg`,
+                          `${process.env.PUBLIC_URL}/icons/menu_book-black-18dp.svg`,
+                          `${process.env.PUBLIC_URL}/icons/groups-black-18dp.svg`];
     return (
       <div className="navigationBarElementsWrapper">
         <div className="headerNavBar">
@@ -28,7 +32,7 @@ class NavBarContainer extends React.Component<NavBarProps, NavBarState> {
           </div>
         </div>
         <div className="menuListNavBar">
-          <Menu />{/*do a menu component in such a way to take logo and text beside other optional props*/}
+          <Menu items={menuItemList} itemslogo={menuIconList}/>{/*do a menu component in such a way to take logo and text beside other optional props*/}
         </div>
         <div className="footerNavBar">
           <hr />
