@@ -6,20 +6,64 @@ import FooterList from "../../../components/account-page-components/navbar-compo
 import Profile from "../../../model/Profile";
 import { ProfileApi } from "../../../api/profile-api";
 
+interface MediaTypeIconItems{
+    tablet:string[],
+    laptop:string[],
+    s4k:string[]
+}
 interface NavBarProps {}
-interface NavBarState {}
+interface NavBarState {
+    screenWidth: number
+}
 
 class NavBarContainer extends React.Component<NavBarProps, NavBarState> {
-    private avatar: string;
+  private screenWidth: number=window.innerWidth;
+  private avatar: string;
+  private readonly mediatTypeTablet_menuIconList:string[] = [`${process.env.PUBLIC_URL}/icons/favorite-black-14dp.svg`,
+                                                            `${process.env.PUBLIC_URL}/icons/description-black-14dp.svg`,
+                                                            `${process.env.PUBLIC_URL}/icons/menu_book-black-14dp.svg`,
+                                                            `${process.env.PUBLIC_URL}/icons/groups-black-14dp.svg`];
+  private readonly mediatTypeLaptop_menuIconList:string[] = [`${process.env.PUBLIC_URL}/icons/favorite-black-18dp.svg`,
+                                                            `${process.env.PUBLIC_URL}/icons/description-black-18dp.svg`,
+                                                            `${process.env.PUBLIC_URL}/icons/menu_book-black-18dp.svg`,
+                                                            `${process.env.PUBLIC_URL}/icons/groups-black-18dp.svg`];
+  private readonly mediaType4k_menuIconList:string[] = [`${process.env.PUBLIC_URL}/icons/favorite-black-24dp.svg`,
+                                                        `${process.env.PUBLIC_URL}/icons/description-black-24dp.svg`,
+                                                        `${process.env.PUBLIC_URL}/icons/menu_book-black-24dp.svg`,
+                                                        `${process.env.PUBLIC_URL}/icons/groups-black-24dp.svg`];
+  private readonly mediaTypeIconItems:MediaTypeIconItems = {
+    tablet: this.mediatTypeTablet_menuIconList,
+    laptop: this.mediatTypeLaptop_menuIconList,
+    s4k: this.mediaType4k_menuIconList,
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateScreenWidthDimension);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateScreenWidthDimension);
+  }
+  private updateScreenWidthDimension = () => {
+    this.setState(()=>{ this.screenWidth= window.innerWidth});
+  };
+
+  private responsiveFetchOfMenuIcons = (iconItems:MediaTypeIconItems):string[] => {
+    if(this.screenWidth<768){
+      return iconItems.tablet;
+    }else if(this.screenWidth<=1920 && this.screenWidth>=768){
+      return iconItems.laptop;
+    }else if(this.screenWidth>1920){
+      return iconItems.s4k;
+    } else {
+        return [];
+    }
+  }
 
   render() {
     let profile: Profile = ProfileApi.getProfile();
     this.avatar = profile.avatar ? profile.avatar : profile.defaultAvatar;
     const menuItemList = ["Favorites","Notes","Notebooks","Groups"];
-    const menuIconList = [`${process.env.PUBLIC_URL}/icons/favorite-black-18dp.svg`,
-                          `${process.env.PUBLIC_URL}/icons/description-black-18dp.svg`,
-                          `${process.env.PUBLIC_URL}/icons/menu_book-black-18dp.svg`,
-                          `${process.env.PUBLIC_URL}/icons/groups-black-18dp.svg`];
+                
     return (
       <div className="navigationBarElementsWrapper">
         <div className="headerNavBar">
@@ -32,7 +76,9 @@ class NavBarContainer extends React.Component<NavBarProps, NavBarState> {
           </div>
         </div>
         <div className="menuListNavBar">
-          <Menu items={menuItemList} itemslogo={menuIconList}/>{/*do a menu component in such a way to take logo and text beside other optional props*/}
+          <div id="menuList">
+            <Menu items={menuItemList} itemslogo={this.responsiveFetchOfMenuIcons(this.mediaTypeIconItems)}/>{/*do a menu component in such a way to take logo and text beside other optional props*/}
+          </div>
         </div>
         <div className="footerNavBar">
           <hr />

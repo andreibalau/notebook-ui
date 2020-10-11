@@ -15,7 +15,6 @@ class Menu extends React.Component<MenuProps,MenuState>{
         super(props);
         this.items = props.items;
         this.itemsLogo = props.itemslogo;
-        console.log(this.itemsLogo)
     }
 
     private hasItemsLogo = (list: string[]|undefined):boolean => {
