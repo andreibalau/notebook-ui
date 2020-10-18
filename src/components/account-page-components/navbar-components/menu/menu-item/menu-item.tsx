@@ -3,23 +3,29 @@ import "./menu-item.css";
 
 interface MenuItemProps{
     item:string,
-    itemsLogo?: string
-    
+    itemIcon?: string 
 }
-interface MenuItemState{}
+interface MenuItemState{
+    itemIcon?: string
+}
 
 class MenuItem extends React.Component<MenuItemProps,MenuItemState> {
     private item:string;
-    private itemsLogo?: string;
 
     constructor(props:MenuItemProps){
         super(props)
         this.item = props.item;
-        this.itemsLogo = props.itemsLogo;
+        this.state = {
+            itemIcon : this.props.itemIcon
+        }
     }
 
+    componentWillReceiveProps(nextProps: MenuItemProps ) {
+        this.setState({ itemIcon: nextProps.itemIcon });  
+    }
+    
     render(){
-        return <li>{this.itemsLogo ? <img className="menu-item-logo" src={this.itemsLogo} alt={this.item + "-icon"}/> : undefined}{this.item}</li>
+        return <li>{this.state.itemIcon ? <img className="menu-item-icon" src={this.state.itemIcon} alt={this.item + "-icon"}/> : undefined}{this.item}</li>
     }
 }
 
